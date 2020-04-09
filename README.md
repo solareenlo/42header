@@ -1,3 +1,8 @@
+# 42 Header for Jp
+- 登録するメアドが日本のだと長すぎて，Normillete がエラーになるので，少しだけ Header の横幅設定を長くした．
+
+↓ Original
+---
 # **42 Header**
 
 42 (Paris)
