@@ -63,7 +63,7 @@ endfunction
 function! s:line(n)
 	if a:n == 1 || a:n == 11 " top and bottom line
 		return s:start . ' ' . repeat(s:fill, s:length - strlen(s:start) - strlen(s:end) - 2) . ' ' . s:end
-	elseif a:n == 2 || a:n == 10 " blank line
+	elseif a:n == 2 " blank line
 		return s:textline('', '')
 	elseif a:n == 3 || a:n == 5 || a:n == 7 " empty with ascii
 		return s:textline('', s:ascii(a:n))
@@ -75,6 +75,8 @@ function! s:line(n)
 		return s:textline("Created: " . s:date() . " by " . s:user(), s:ascii(a:n))
 	elseif a:n == 9 " updated
 		return s:textline("Updated: " . s:date() . " by " . s:user(), s:ascii(a:n))
+	elseif a:n == 10 " Copyright
+		return s:textline("Copyright ".s:year(), '')
 	endif
 endfunction
 
@@ -104,6 +106,10 @@ endfunction
 
 function! s:date()
 	return strftime("%Y/%m/%d %H:%M:%S")
+endfunction
+
+function! s:year()
+	return strftime("%Y")
 endfunction
 
 function! s:insert()
